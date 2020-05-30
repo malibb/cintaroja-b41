@@ -25,7 +25,7 @@ definición de una función
 function nombreDeLaFuncion(parametroRecibido) {
     // pedazo de código
     const numero = 3;
-    const parametros = parametroRecibido;
+    const parametros = parametroRecibido + numero;
     return parametros;
     // sin la palabra return, el valor de función va a ser undefined  
 }
