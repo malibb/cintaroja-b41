@@ -1,0 +1,14 @@
+{
+  "name": "6_peticiones",
+  "version": "1.0.0",
+  "description": "Mi primer proyecto con node y npm",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mali@malibb",
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.88.2"
+  }
+}
