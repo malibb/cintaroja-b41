@@ -1,4 +1,14 @@
 const axios = require('axios');
+// Promesas tienen 3 estados (resolve, reject)
+
+// Promesa => Pendiente
+// Promesa => Resuelta
+// Promesa => Rechazada
+
+// Métodos que tenemos para manipular una promesa.
+// Promesa => Then -> se ejecuta cuando la promesa se resulve
+// Promesa => Catch -> cuando el estado es rechazado
+// Promesa => Finally -> siempre
 
 /*
 function recibirData(error, response, body) {
@@ -27,45 +37,63 @@ function recibirData(error, response, body) {
 
 */
 
- const getPeople = (id) => {
+
+class Persona {
+    constructor(nombre, planeta, genero){
+        this.nombre = nombre;
+        this.planeta = planeta;
+        this.genero = genero;
+    }
+}
+
+// lo peligroso de usar async await era que todo mi contexto se vuelve asincrono.
+// devolver una persona necesitamos agrega un return encargado de mandar este dato.
+const getPerson = (id) => {
     // traer los datos de la API
-    const url = `https://swapi.dev/api/people/${id}/`;
-    const onePerson = axios.get(url); // axios devuelve una promesa.
+    return new Promise((resolve, reject) => {
+        const url = `https://swapi.dev/api/people/${id}/`;
+        const onePerson = axios.get(url); // axios devuelve una promesa.
 
-    onePerson.
-    then(async (response) =>{
-        // const nuevoArreglo = resultados.map(async (elemento)=>{
-            const planeta = await getNamePlanet(response.data.homeworld);
-            const nuevoElemento = {
-                nombrePersonaje: response.data.name,
-                genero: response.data.gender,
-                nombrePlaneta: planeta//elemento.homeworld,
-            }
-            console.log(nuevoElemento);
-            return nuevoElemento;
-        //});
-    }) 
-    .catch((error)=>{
-        console.log(error.response.data);
-        console.log(error.response.status);
+        onePerson
+        .then((response) =>{ // response 
+            // primer paso, obtener el planeta
+            // console.log('estoy en el primer then', response.data);
+            return getNamePlanet(response.data.homeworld)
+                .then((resultado) => {
+                    // console.log('resultado getName', resultado);
+                    return { ...response.data, homeworld: resultado};
+                });  
+        })
+        .then((personaje) => {
+            //console.log('valorDeRetornoPromesaAnterior',valorDeRetornoPromesaAnterior);
+            resolve(new Persona(personaje.name, personaje.homeworld, personaje.gender));
+        })
+        .catch((error)=>{
+            console.log(error.response.data);
+            console.log(error.response.status);
+            reject(new Error(error.response.status));
+        });
+
+        // console.log('promesa', promesa);
+        //return promesa;
     });
-
 }
 
 function getNamePlanet(url){
     return new Promise((resolve, reject)=> {
-        const promesaPlaneta = axios.get(url);
-        promesaPlaneta
+        axios.get(url)
         .then((response) => {
-            console.log(response.data.name);
             resolve(response.data.name);
         })
         .catch((error)=> {
-            console.log(error);
-            reject(new Error('Error al hacer la peticion'));
+            reject(new Error(`Error al hacer la peticion: ${error}`));
         });
     });
 };
 
-
-getPeople(4);
+const personas = [];
+getPerson(4)
+.then((personaCreada) => {
+   personas.push(personaCreada);
+   console.log(personas);
+})
