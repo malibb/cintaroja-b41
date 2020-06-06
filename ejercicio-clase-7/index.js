@@ -11,6 +11,15 @@ class Author {
         this.age = age;
         this.is_alive = is_alive;
     }
+    getName(){
+        return this.name;
+    }
+    setName(newName){
+        this.name = newName;
+    }
+    getWelcomeMessage(){
+        return `Bienvenido a la página de ${this.name}`;
+    }
 }
 
 function crearAuthor(nombre, apellido ,nacionalidad, biografia, genero, edad) {
@@ -40,3 +49,16 @@ function crearAuthor(nombre, apellido ,nacionalidad, biografia, genero, edad) {
           });
     });
 }
+
+function getAuthor(id) {
+    return axios.get(`https://goodreads-devf-aaron.herokuapp.com/api/v1/authors/${id}/`);
+}
+
+const author = getAuthor(6549);
+
+const grupoDeAutores = [];
+
+grupoDeAutores.push(crearAuthor('Mali'));
+grupoDeAutores.push(crearAuthor('Mali'));
+grupoDeAutores.push(crearAuthor('Mali'));
+grupoDeAutores.push(crearAuthor('Mali'));
