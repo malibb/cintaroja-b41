@@ -51,7 +51,7 @@ const getDatos = (callback, datos_enviado) => {
 }
 
 const getDato = (parametro) => {
-    return `Dame tu ${parametro}`;
+    return prompt(`Dame tu ${parametro}`);
 }
 
 

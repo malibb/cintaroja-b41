@@ -10,7 +10,7 @@ const axios = require('axios');
 // Promesa => Catch -> cuando el estado es rechazado
 // Promesa => Finally -> siempre
 
-/*
+
 function recibirData(error, response, body) {
     console.log(response.statusCode); // 200
     const data = JSON.parse(body);// JSON.parse convierte a mi string en un obj de JS.

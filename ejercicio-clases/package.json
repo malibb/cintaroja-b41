@@ -1,9 +1,11 @@
 {
-  "name": "nuevofolder",
+  "name": "ejercicio-clases",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "pokeapi": "node pokeapi.js",
+    "nasa": "node nasaEjercicio.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
