@@ -6,6 +6,11 @@
   height: 40vmin;
   pointer-events: none;
 }
+.contenedorCards{
+  display: flex;
+  justify-items: row;
+  justify-content: space-around;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

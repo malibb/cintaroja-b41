@@ -1,0 +1,13 @@
+.contenedor{
+    width: 20vw;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em;
+}
+
+.is-orange{
+    background-color: orange;
+}

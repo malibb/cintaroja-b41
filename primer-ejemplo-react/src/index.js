@@ -6,11 +6,7 @@ import * as serviceWorker from './serviceWorker';
 /* la etiqueta App está en JSX */
 ReactDOM.render(
   <React.StrictMode>
-    <App name="Mi aplicación" color="is-react"/>
-    <App name="Sección 1" color="is-green"/>
-    <App name="Sección 2" color="is-yellow"/>
-    <App name="Sección 3" color="is-red"/>
-    <App name="Final" color="is-react"/>
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );
