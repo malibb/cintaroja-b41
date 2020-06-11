@@ -4,6 +4,8 @@ import './Card.css';
 // estado: valor que puede cambiar a través del tiempo 
 function Card(props) {
     const [propiedad, setPropiedad] = useState('Me están viendo OnO');
+    const [color, setColor] = useState('is-orange');
+
 
     function devuelveBoton() {
         if ( propiedad === 'Me están viendo OnO') {
@@ -15,9 +17,17 @@ function Card(props) {
             setPropiedad('Me están viendo OnO')
         }}>Regresa al anterior texto</button>); 
     }
+
+    const cambiarColor = () => {
+        if(color === 'is-green') {
+            setColor('is-yellow')
+        } else {
+            setColor('is-green')
+        }
+    }
      
     return(
-        <div className="contenedor is-orange">
+        <div className={`contenedor ${color}`}>
             <h2>{props.titulo}</h2>
             <img src={props.img} width="90%"/>
             <div className="cuerpoContenedor">
@@ -33,6 +43,7 @@ function Card(props) {
                     setPropiedad('Me están viendo OnO')
                 }}>Regresa al anterior texto</button>
                 }
+            <button onClick={cambiarColor}>cambiar color</button>
         </div>
     );
 }

@@ -1,0 +1,22 @@
+.contenedorCards{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.is-green{
+background-color: green;
+}
+
+.is-yellow{
+background-color: yellow;
+}
+
+.is-red {
+background-color: red;
+}
+
+.is-react {
+background-color: #282c34;
+}
