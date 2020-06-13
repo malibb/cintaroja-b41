@@ -11,7 +11,6 @@ const TaskManager = () => {
     const getTasks = () => {
         axios.get('https://cintaroja-ff8f6.firebaseio.com/task.json')
         .then(({data})=>{
-            debugger;
             setTasks(data);
         })
     };
