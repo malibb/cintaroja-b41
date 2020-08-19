@@ -7,7 +7,7 @@ import {
 
 import MainContainer from './containers/MainContainer/MainContainer';
 import TaskContainer from './containers/TaskContainer/TaskContainer';
-import Container404 from './containers/Container404/Container404'
+import Container404 from './containers/Container404/Container404';
 
 function App() {
   return (
